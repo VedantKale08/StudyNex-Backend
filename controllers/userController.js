@@ -10,7 +10,7 @@ const {
 } = require("../services/userService");
 
 const register = asyncHandler(async (req, res) => {
-  try {
+  try {    
     const data = await registerUser(req, res);
     if (data) {
       successResponse({
@@ -22,7 +22,7 @@ const register = asyncHandler(async (req, res) => {
       errorResponse({ res, message: "Something went wrong!" });
     }
   } catch (error) {
-    errorResponse({ res, message: "Something went wrong!" });
+    // errorResponse({ res, message: "Something went wrong!" });
   }
 });
 

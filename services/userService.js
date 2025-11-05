@@ -12,20 +12,21 @@ const registerUser = async (req, res) => {
 
     if (!name || !username || !password || !mobile_number) {
       errorResponse({ res, message: "Please fill required fields!" });
+      return;
     }
-    const emailExists = await User.findOne({ email });
-    const usernameExists = await User.findOne({ username });
-    const mobileExists = await User.findOne({ mobile_number });
+    // const emailExists = await User.findOne({ email });
+    // const usernameExists = await User.findOne({ username });
+    // const mobileExists = await User.findOne({ mobile_number });
 
-    if (emailExists) {
-      errorResponse({ res, message: "Email already exists!" });
-    }
-    if (usernameExists) {
-      errorResponse({ res, message: "Username already exists!" });
-    }
-    if (mobileExists) {
-      errorResponse({ res, message: "Mobile number already exists!" });
-    }
+    // if (emailExists) {
+    //   errorResponse({ res, message: "Email already exists!" });
+    // }
+    // if (usernameExists) {
+    //   errorResponse({ res, message: "Username already exists!" });
+    // }
+    // if (mobileExists) {
+    //   errorResponse({ res, message: "Mobile number already exists!" });
+    // }
 
     const user = await User.create({
       name,
